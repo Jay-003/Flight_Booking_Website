@@ -1,0 +1,195 @@
+/* 
+ * Main scripts file for the flight schedule website.
+ * Assignment 4, CSCI 1170, Fall 2022
+ * Starter code provided by Dr. Mayra Barrera Machuca
+ */
+
+/* General body styling, body set up as a grid container */
+body {
+  width: 80vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(5, auto);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Page banner styling, set to apper on the top row */
+.pg-banner {
+  grid-row: 1/2;
+  grid-column: 1/-1;
+  border-bottom: 5px solid steelblue;
+}
+
+.header-container {
+  padding: 0 0.5em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Page footer styling, set to apper on the bottom row */
+.pg-footer {
+  padding: 0 0.5em;
+  grid-row: -3/-2;
+  grid-column: 1/-1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-top: 1px solid gold;
+  font-size: smaller;
+}
+
+/* Navigation elements - primary (main nav in the banner), secondary (smaller nav in the banner) and footer nav. */
+.primary-nav {
+  display: flex;
+}
+
+.primary-nav > a {
+  margin: 0 0 0 1em;
+  color: steelblue;
+  text-decoration: none;
+}
+
+.primary-nav > a:hover,
+.primary-nav > a:active {
+  color: maroon;
+}
+
+.footer-nav {
+  display: flex;
+}
+
+.footer-nav > a {
+  margin: 0 0 0 1em;
+  color: steelblue;
+  text-decoration: none;
+}
+
+.footer-nav > a:hover,
+.footer-nav > a:active {
+  color: maroon;
+}
+
+/* Main content container to include all the flights, adjusting height and margin */
+.container {
+  margin: 10px;
+  grid-column: 1/5;
+}
+
+/* adjusting width of nav bar and footer */
+.pg-banner,
+.pg-footer {
+  width: 110%;
+}
+
+/* adjusting gap between rows and columns and using grid to arrange content to the flight info box */
+.flight-info {
+  display: grid;
+  column-gap: 45px;
+  row-gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* changing content color,background color and giving border to the flight availability info box */
+.flight-availability-info {
+  background-color: rgb(167, 227, 242);
+  color: rgb(5, 62, 115);
+  border: 2px double;
+  width: 110%;
+}
+
+/* adding color to heading and aligning text to center*/
+.cityName {
+  color: black;
+  text-align: center;
+}
+
+/* adjusting font style and aligning text to center for the time information */
+.routeInfo {
+  color: rgb(5, 62, 115);
+  font-style: italic;
+  text-align: center;
+  font-size: small;
+  font-weight: normal;
+}
+
+/* adjusting font style,background color,color, height and width of the list class, also gving padding,width and margin*/
+.planeDetails {
+  background-color: rgb(5, 62, 115);
+  color: rgb(167, 227, 242);
+  margin-top: 10px;
+  padding: 0px 25px 0px 35px;
+  text-indent: -20px;
+  font-style: normal;
+  text-align: left;
+  height: fit-content;
+}
+
+/* aligning select button to center*/
+.buttonSec {
+  text-align: center;
+  padding-bottom: 3px;
+}
+
+/* giving color and adjusting width,padding to flight section bag*/
+.flights-selection-bag {
+  background-color: rgb(5, 62, 115);
+  color: rgb(167, 227, 242);
+  width: 130%;
+  margin-left: 25px;
+}
+
+/*
+*CSS for Mobile View.
+*/
+@media screen and (max-width: 840px) {
+  /*setting body display to grid*/
+  body {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  /*hidding the navigation in mobile view from the user*/
+  .primary-nav,
+  .footer-nav {
+    visibility: hidden;
+  }
+
+  /*designing the heading*/
+  .pg-banner {
+    grid-row: 1;
+    width: 160%;
+  }
+
+  /*desinging the section containing plane details*/
+  .planeDetails {
+    padding-right: 20px;
+    height: fit-content;
+    width: fit-content;
+  }
+
+  /*using template to display only one city in a row*/
+  .container section {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  /*designing the section that will store the added flights*/
+  .flights-selection-bag {
+    padding: 5px;
+    grid-row: 2;
+    grid-column: 6;
+    width: 120px;
+  }
+
+  /*designing the footer of the page*/
+  .pg-footer {
+    display: inline;
+    grid-row: 4;
+    width: 120%;
+    padding-left: 40%;
+  }
+}
